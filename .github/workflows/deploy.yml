@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Build project
         run: npm run build
@@ -41,6 +41,6 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd /home/ubuntu/your-nextjs-app
-            npm install --force
+            npm install --legacy-peer-deps
             npm run build
             pm2 restart next-app || pm2 start npm --name "next-app" -- start
