@@ -41,6 +41,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/your-nextjs-app
+            export NEXT_PUBLIC_API_BASE_URL="${{ secrets.NEXT_PUBLIC_API_BASE_URL }}"
             npm install --legacy-peer-deps
             npm run build
             pm2 restart next-app || pm2 start npm --name "next-app" -- start
