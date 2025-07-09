@@ -44,3 +44,5 @@ jobs:
             npm install --legacy-peer-deps
             npm run build
             pm2 restart next-app || pm2 start npm --name "next-app" -- start
+            sudo systemctl reload nginx
+
